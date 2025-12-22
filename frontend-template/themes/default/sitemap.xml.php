@@ -37,7 +37,7 @@ $baseUrl = $protocol . '://' . $_SERVER['HTTP_HOST'];
     <!-- Menu Pages -->
     <?php foreach ($menuPages as $menuPage): ?>
     <url>
-        <loc><?= $baseUrl ?>/<?= htmlspecialchars($menuPage->slug) ?></loc>
+        <loc><?= $baseUrl ?>/<?= htmlspecialchars($menuPage['slug'] ?? '') ?></loc>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
@@ -46,11 +46,11 @@ $baseUrl = $protocol . '://' . $_SERVER['HTTP_HOST'];
     <!-- Individual Articles -->
     <?php foreach ($articles as $article): ?>
     <url>
-        <loc><?= $baseUrl ?>/article/<?= htmlspecialchars($article->slug) ?></loc>
-        <?php if (!empty($article->updated_at)): ?>
-        <lastmod><?= date('Y-m-d', strtotime($article->updated_at)) ?></lastmod>
-        <?php elseif (!empty($article->published_at)): ?>
-        <lastmod><?= date('Y-m-d', strtotime($article->published_at)) ?></lastmod>
+        <loc><?= $baseUrl ?>/article/<?= htmlspecialchars($article['slug'] ?? '') ?></loc>
+        <?php if (!empty($article['updated_at'])): ?>
+        <lastmod><?= date('Y-m-d', strtotime($article['updated_at'])) ?></lastmod>
+        <?php elseif (!empty($article['published_at'])): ?>
+        <lastmod><?= date('Y-m-d', strtotime($article['published_at'])) ?></lastmod>
         <?php endif; ?>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>

@@ -12,7 +12,7 @@ return [
     'api_url' => 'http://localhost/multi-tenant-system/api',
 
     // This journal's API key (get from admin dashboard)
-    'api_key' => 'YOUR_API_KEY_HERE',
+    'api_key' => 'api_key_science_12345678901234567890123456789012',
 
     // Cache settings
     'cache' => [

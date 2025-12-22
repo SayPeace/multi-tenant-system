@@ -14,11 +14,11 @@
                 <div>
                     <h3>Quick Links</h3>
                     <ul style="list-style: none;">
-                        <li><a href="/articles">Articles</a></li>
-                        <li><a href="/archives">Archives</a></li>
-                        <li><a href="/editorial-board">Editorial Board</a></li>
+                        <li><a href="<?= $baseUrl ?>/articles">Articles</a></li>
+                        <li><a href="<?= $baseUrl ?>/archives">Archives</a></li>
+                        <li><a href="<?= $baseUrl ?>/editorial-board">Editorial Board</a></li>
                         <?php foreach ($menuPages as $menuPage): ?>
-                        <li><a href="/<?= htmlspecialchars($menuPage->slug) ?>"><?= htmlspecialchars($menuPage->title) ?></a></li>
+                        <li><a href="<?= $baseUrl ?>/<?= htmlspecialchars($menuPage['slug'] ?? '') ?>"><?= htmlspecialchars($menuPage['title'] ?? '') ?></a></li>
                         <?php endforeach; ?>
                     </ul>
                 </div>

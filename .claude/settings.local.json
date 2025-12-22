@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(C:/xampp/mysql/bin/mysql.exe:*)",
+      "Bash(php -r:*)",
+      "Bash(/c/xampp/php/php.exe -r \"echo password_hash\\(''Admin@123'', PASSWORD_DEFAULT\\);\")",
+      "Bash(/c/xampp/php/php.exe /c/xampp/htdocs/multi-tenant-system/admin/setup_admin.php)"
     ]
   }
 }

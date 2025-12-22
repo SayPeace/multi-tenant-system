@@ -22,31 +22,31 @@ $positionLabels = [
     <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;">
         <?php foreach ($board[$position] as $member): ?>
         <div style="display: flex; gap: 15px; padding: 15px; background: #f9f9f9; border-radius: 8px;">
-            <?php if (!empty($member->photo_url)): ?>
-            <img src="<?= htmlspecialchars($member->photo_url) ?>" alt="<?= htmlspecialchars($member->name) ?>"
+            <?php if (!empty($member['photo_url'])): ?>
+            <img src="<?= htmlspecialchars($member['photo_url']) ?>" alt="<?= htmlspecialchars($member['name'] ?? '') ?>"
                  style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover;">
             <?php else: ?>
             <div style="width: 80px; height: 80px; border-radius: 50%; background: #ddd; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #888;">
-                <?= strtoupper(substr($member->name, 0, 1)) ?>
+                <?= strtoupper(substr($member['name'] ?? '', 0, 1)) ?>
             </div>
             <?php endif; ?>
 
             <div>
                 <h3 style="margin-bottom: 5px;">
-                    <?php if (!empty($member->title)): ?>
-                    <?= htmlspecialchars($member->title) ?>
+                    <?php if (!empty($member['title'])): ?>
+                    <?= htmlspecialchars($member['title']) ?>
                     <?php endif; ?>
-                    <?= htmlspecialchars($member->name) ?>
+                    <?= htmlspecialchars($member['name'] ?? '') ?>
                 </h3>
-                <?php if (!empty($member->affiliation)): ?>
-                <p style="color: #666; font-size: 0.9rem;"><?= htmlspecialchars($member->affiliation) ?></p>
+                <?php if (!empty($member['affiliation'])): ?>
+                <p style="color: #666; font-size: 0.9rem;"><?= htmlspecialchars($member['affiliation']) ?></p>
                 <?php endif; ?>
-                <?php if (!empty($member->country)): ?>
-                <p style="color: #888; font-size: 0.85rem;"><?= htmlspecialchars($member->country) ?></p>
+                <?php if (!empty($member['country'])): ?>
+                <p style="color: #888; font-size: 0.85rem;"><?= htmlspecialchars($member['country']) ?></p>
                 <?php endif; ?>
-                <?php if (!empty($member->email)): ?>
+                <?php if (!empty($member['email'])): ?>
                 <p style="font-size: 0.85rem; margin-top: 5px;">
-                    <a href="mailto:<?= htmlspecialchars($member->email) ?>"><?= htmlspecialchars($member->email) ?></a>
+                    <a href="mailto:<?= htmlspecialchars($member['email']) ?>"><?= htmlspecialchars($member['email']) ?></a>
                 </p>
                 <?php endif; ?>
             </div>

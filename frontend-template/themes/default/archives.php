@@ -11,14 +11,14 @@ include __DIR__ . '/header.php';
     <?php $volume = $volumeData['volume']; ?>
     <div class="card">
         <h2 style="margin-bottom: 15px;">
-            Volume <?= $volume->volume_number ?> (<?= $volume->year ?>)
-            <?php if (!empty($volume->title)): ?>
-            - <?= htmlspecialchars($volume->title) ?>
+            Volume <?= $volume['volume_number'] ?? '' ?> (<?= $volume['year'] ?? '' ?>)
+            <?php if (!empty($volume['title'])): ?>
+            - <?= htmlspecialchars($volume['title']) ?>
             <?php endif; ?>
         </h2>
 
-        <?php if (!empty($volume->description)): ?>
-        <p style="margin-bottom: 15px; color: #666;"><?= htmlspecialchars($volume->description) ?></p>
+        <?php if (!empty($volume['description'])): ?>
+        <p style="margin-bottom: 15px; color: #666;"><?= htmlspecialchars($volume['description']) ?></p>
         <?php endif; ?>
 
         <?php if (!empty($volumeData['issues'])): ?>
@@ -26,21 +26,21 @@ include __DIR__ . '/header.php';
             <?php foreach ($volumeData['issues'] as $issue): ?>
             <div style="padding: 15px; background: #f9f9f9; border-radius: 4px;">
                 <h3 style="margin-bottom: 8px;">
-                    <a href="/issue/<?= $issue->id ?>">
-                        Issue <?= $issue->issue_number ?>
-                        <?php if (!empty($issue->month)): ?>
-                        (<?= htmlspecialchars($issue->month) ?>)
+                    <a href="<?= $baseUrl ?>/issue/<?= $issue['id'] ?? '' ?>">
+                        Issue <?= $issue['issue_number'] ?? '' ?>
+                        <?php if (!empty($issue['month'])): ?>
+                        (<?= htmlspecialchars($issue['month']) ?>)
                         <?php endif; ?>
                     </a>
                 </h3>
-                <?php if ($issue->is_special_issue && !empty($issue->title)): ?>
+                <?php if (($issue['is_special_issue'] ?? false) && !empty($issue['title'])): ?>
                 <p style="font-style: italic; color: #666; margin-bottom: 5px;">
-                    Special Issue: <?= htmlspecialchars($issue->title) ?>
+                    Special Issue: <?= htmlspecialchars($issue['title']) ?>
                 </p>
                 <?php endif; ?>
-                <?php if (!empty($issue->published_at)): ?>
+                <?php if (!empty($issue['published_at'])): ?>
                 <p style="font-size: 0.9rem; color: #888;">
-                    Published: <?= date('M j, Y', strtotime($issue->published_at)) ?>
+                    Published: <?= date('M j, Y', strtotime($issue['published_at'])) ?>
                 </p>
                 <?php endif; ?>
             </div>

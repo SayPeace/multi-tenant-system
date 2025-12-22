@@ -1,0 +1,32 @@
+# Medical Journal Frontend .htaccess
+# Enable URL rewriting for clean URLs
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /multi-tenant-system/journals/medical-journal/
+
+    # Redirect all requests to index.php (except existing files)
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php [QSA,L]
+</IfModule>
+
+# Security headers
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# Prevent directory listing
+Options -Indexes
+
+# Deny access to sensitive files
+<Files "config.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<Files "*.cache">
+    Order Allow,Deny
+    Deny from all
+</Files>

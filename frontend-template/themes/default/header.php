@@ -315,7 +315,7 @@
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <a href="/" class="logo">
+                <a href="<?= $baseUrl ?>/" class="logo">
                     <?php if (!empty($tenant['branding']['logo_url'])): ?>
                     <img src="<?= htmlspecialchars($tenant['branding']['logo_url']) ?>" alt="<?= htmlspecialchars($tenant['name']) ?>">
                     <?php endif; ?>
@@ -328,12 +328,12 @@
                 </a>
 
                 <nav class="nav">
-                    <a href="/" <?= $uri === '/' ? 'class="active"' : '' ?>>Home</a>
-                    <a href="/articles" <?= $uri === '/articles' ? 'class="active"' : '' ?>>Articles</a>
-                    <a href="/archives" <?= $uri === '/archives' ? 'class="active"' : '' ?>>Archives</a>
-                    <a href="/editorial-board" <?= $uri === '/editorial-board' ? 'class="active"' : '' ?>>Editorial Board</a>
+                    <a href="<?= $baseUrl ?>/" <?= $uri === '/' ? 'class="active"' : '' ?>>Home</a>
+                    <a href="<?= $baseUrl ?>/articles" <?= $uri === '/articles' ? 'class="active"' : '' ?>>Articles</a>
+                    <a href="<?= $baseUrl ?>/archives" <?= $uri === '/archives' ? 'class="active"' : '' ?>>Archives</a>
+                    <a href="<?= $baseUrl ?>/editorial-board" <?= $uri === '/editorial-board' ? 'class="active"' : '' ?>>Editorial Board</a>
                     <?php foreach ($menuPages as $menuPage): ?>
-                    <a href="/<?= htmlspecialchars($menuPage->slug) ?>" <?= $uri === '/'.$menuPage->slug ? 'class="active"' : '' ?>><?= htmlspecialchars($menuPage->title) ?></a>
+                    <a href="<?= $baseUrl ?>/<?= htmlspecialchars($menuPage['slug'] ?? '') ?>" <?= $uri === '/'.($menuPage['slug'] ?? '') ? 'class="active"' : '' ?>><?= htmlspecialchars($menuPage['title'] ?? '') ?></a>
                     <?php endforeach; ?>
                 </nav>
             </div>
