@@ -1,4 +1,4 @@
-#Problem
+# Problem
 You are a senior software architect and backend engineer with deep experience in PHP, MySQL, multi-tenant SaaS systems, and production-scale web applications.
 
 I want you to think with me, not rush, and help me arrive at the best long-term architectural solution.
@@ -184,7 +184,7 @@ Do not rush to conclusions — reason carefully.
 Take your time. Think like you are designing a SaaS platform that will be used for years.
 
 
-#Proposed Solutions
+# Proposed Solutions
 
 ## Understanding the Core Challenge
 
