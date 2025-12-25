@@ -92,6 +92,7 @@ $routes = [
     'POST /editor/users' => ['editor/UsersController', 'store'],
     'GET /editor/users/{id}/edit' => ['editor/UsersController', 'edit'],
     'POST /editor/users/{id}' => ['editor/UsersController', 'update'],
+    'POST /editor/users/{id}/delete' => ['editor/UsersController', 'destroy'],
     'GET /editor/volumes' => ['editor/VolumesController', 'index'],
     'POST /editor/volumes' => ['editor/VolumesController', 'store'],
     'GET /editor/pages' => ['editor/PagesController', 'index'],
